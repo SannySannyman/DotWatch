@@ -27,7 +27,15 @@
 #define RTC_REG_YEAR		0x06
 #define RTC_REG_CONTROL		0x07
 
+#define RTC_SECONDS_PER_MINUTE     60u
+#define RTC_MINUTES_PER_HOUR       60u
+#define RTC_HOURS_PER_DAY          24u
+#define RTC_SECONDS_PER_HOUR       (60u*60u)
+#define RTC_SECONDS_PER_DAY        (24ul*60ul*60ul)
 
+#define RTC_SECONDS_MAX    (RTC_SECONDS_PER_MINUTE-1u)
+#define RTC_MINUTES_MAX    (RTC_MINUTES_PER_HOUR-1u)
+#define RTC_HOURS_MAX      (RTC_HOURS_PER_DAY-1u)
 
 typedef struct 
 {
