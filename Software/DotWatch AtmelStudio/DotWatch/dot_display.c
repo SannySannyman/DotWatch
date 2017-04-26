@@ -7,9 +7,6 @@
 
  #include "dot_display.h"
 
- volatile uint8_t displayBuff[DISPLAY_BUFF_LEN * 2] = {0, 0, 0, 0, 0, 0};
-
-
  uint16_t randGenDots(uint8_t nDots, uint8_t nMax)
  {
 	 uint16_t genBuff = 0;
@@ -57,9 +54,8 @@
 	 return genBuff;
  }
 
- void genDotBuffers(uint8_t BCDhours, uint8_t BCDmins)
+ void genDotBuffers(uint8_t BCDhours, uint8_t BCDmins, uint8_t *displayBuffPtr)
  {
-	 uint8_t displayTempBuff[DISPLAY_BUFF_LEN * 2];
 	 uint16_t dotBuff[TIME_EN_N];
 	 uint8_t temp = 0;
 	 uint8_t buffCnt = 0;
@@ -74,12 +70,12 @@
 	{
 		temp = buffCnt * 2;
 
-		displayTempBuff[temp] =
+		displayBuffPtr[temp] =
 		(1<<(buffCnt+2)) |
 		((dotBuff[TIME_HOUR_T] >> (DISPLAY_HOUR_T_ROW_WIDTH * buffCnt))	&
 		DISPLAY_HOUR_T_N_MASK);
 
-		displayTempBuff[temp+1] =
+		displayBuffPtr[temp+1] =
 		(((dotBuff[TIME_HOUR_O] >> (DISPLAY_HOUR_O_ROW_WIDTH * buffCnt))	&
 		DISPLAY_HOUR_O_N_MASK)	<< DISPLAY_HOUR_O_COLUMN_START)		|
 		(((dotBuff[TIME_MIN_T] >> (DISPLAY_MIN_T_ROW_WIDTH * buffCnt))		&
@@ -88,11 +84,18 @@
 		DISPLAY_MIN_O_N_MASK)	<< DISPLAY_MIN_O_COLUMN_START) ;
 	}
 
+ }
+
+ void dotBuffUpdate(const uint8_t *displayBuffPtr, uint8_t enable)
+ {
+	uint8_t buffCnt = 0;
+
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
 	{
 		for(buffCnt = 0; buffCnt < DISPLAY_BUFF_LEN; buffCnt++)
 		{
-			displayBuff[buffCnt] = displayTempBuff[buffCnt];
+			displayBuff[buffCnt] = (enable == FALSE)?(0):(displayBuffPtr[buffCnt]);
 		}
+
 	}
  }

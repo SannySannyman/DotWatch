@@ -61,10 +61,11 @@ enum timeEnum
 	TIME_EN_N
 };
 
-volatile uint8_t displayBuff[DISPLAY_BUFF_LEN * 2];
+volatile uint8_t displayBuff[DISPLAY_BUFF_LEN];
 
 uint16_t randGenDots(uint8_t nDots, uint8_t nMax);
-void genDotBuffers(uint8_t BCDhours, uint8_t BCDmins);
+void genDotBuffers(uint8_t BCDhours, uint8_t BCDmins, uint8_t *displayBuffPtr);
+void dotBuffUpdate(const uint8_t *displayBuffPtr, uint8_t enable);
 
 
 #endif /* DOT_DISPLAY_H_ */

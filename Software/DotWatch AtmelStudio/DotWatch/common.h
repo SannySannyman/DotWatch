@@ -9,6 +9,8 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
+#include <avr/io.h>
+
 #define TRUE	1
 #define FALSE	0
 
@@ -23,6 +25,16 @@
 #define D_UPD_DDR	DDRB
 #define D_UPD_PORT	PORTB
 #define D_UPD_PIN	PINB2
+
+#define MODE_BTN_DDR	DDRC
+#define MODE_BTN_PORT	PORTC
+#define MODE_BTN_PIN	PINC
+#define MODE_BTN_PIN_N	PINC3
+
+#define INC_BTN_DDR		DDRC
+#define INC_BTN_PORT	PORTC
+#define INC_BTN_PIN		PINC
+#define INC_BTN_PIN_N	PINC2
 
 typedef enum
 {
