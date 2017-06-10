@@ -14,9 +14,9 @@
 
 #define DS1307_ADDR 0xD0
 
-#define RTC_DEFAULT_HOURS	20
+#define RTC_DEFAULT_HOURS	12
 #define RTC_DEFAULT_MINUTES	13
-#define RTC_DEFAULT_SECONDS 55
+#define RTC_DEFAULT_SECONDS 14
 
 #define RTC_REG_SECONDS		0x00
 #define RTC_REG_MINUTES		0x01
@@ -36,6 +36,12 @@
 #define RTC_SECONDS_MAX    (RTC_SECONDS_PER_MINUTE-1u)
 #define RTC_MINUTES_MAX    (RTC_MINUTES_PER_HOUR-1u)
 #define RTC_HOURS_MAX      (RTC_HOURS_PER_DAY-1u)
+
+#define BCD_ONES_MASK		(0x0Fu)
+#define BCD_TENS_MASK		(0xF0u)
+
+#define BCD_ONES_SHIFT		(0u)
+#define BCD_TENS_SHIFT		(4u)
 
 typedef struct 
 {

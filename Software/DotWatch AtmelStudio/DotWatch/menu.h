@@ -10,20 +10,26 @@
 #define MENU_H_
 
 #include "common.h"
+#include "DS1307.h"
+#include "dot_display.h"
 
-enum 
+#define UPD_US		0
+#define UPD_FORCE	1
+
+typedef enum 
 {
-	EDIT_OFF,
-	EDIT_HOUR_TENS,
-	EDIT_HOUR_ONES,
-	EDIT_MIN_TENS,
-	EDIT_MIN_ONES,
-	
-	EDIT_STATENUM
-};
+	MODE_NORMAL,
+	MODE_EDIT_HOURS,
+	MODE_EDIT_MINS,
+	MODE_EDIT_SEC,
+	MODE_STATENUM
+}mode_t;
 
 
-uint8_t isEditMode(void);
+void MenuInit(void);
+void DisplayUpdate(uint8_t updMode);
+void DisplayMenuUpdate(uint8_t btnStatus, uint16_t btnHoldCnt);
+void DisplayMaskToggle(void);
 
 
 #endif /* MENU_H_ */
