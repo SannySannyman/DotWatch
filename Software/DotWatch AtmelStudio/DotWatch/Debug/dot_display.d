@@ -14,7 +14,8 @@ dot_display.d dot_display.o: .././dot_display.c .././dot_display.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././common.h
+ .././common.h .././bits.h \
+ d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
 
 .././dot_display.h:
 
@@ -49,3 +50,7 @@ d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 .././common.h:
+
+.././bits.h:
+
+d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:

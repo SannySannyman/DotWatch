@@ -10,7 +10,7 @@ DS1307.d DS1307.o: .././DS1307.c .././DS1307.h .././i2cmaster.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././common.h
+ .././common.h .././bits.h
 
 .././DS1307.h:
 
@@ -39,3 +39,5 @@ d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 d:\atmel_studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 .././common.h:
+
+.././bits.h:

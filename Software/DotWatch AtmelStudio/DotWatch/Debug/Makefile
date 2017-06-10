@@ -40,6 +40,7 @@ C_SRCS +=  \
 ../dot_display.c \
 ../DS1307.c \
 ../main.c \
+../menu.c \
 ../twimaster.c \
 ../uart.c
 
@@ -54,6 +55,7 @@ OBJS +=  \
 dot_display.o \
 DS1307.o \
 main.o \
+menu.o \
 twimaster.o \
 uart.o
 
@@ -61,6 +63,7 @@ OBJS_AS_ARGS +=  \
 dot_display.o \
 DS1307.o \
 main.o \
+menu.o \
 twimaster.o \
 uart.o
 
@@ -68,6 +71,7 @@ C_DEPS +=  \
 dot_display.d \
 DS1307.d \
 main.d \
+menu.d \
 twimaster.d \
 uart.d
 
@@ -75,6 +79,7 @@ C_DEPS_AS_ARGS +=  \
 dot_display.d \
 DS1307.d \
 main.d \
+menu.d \
 twimaster.d \
 uart.d
 
@@ -92,6 +97,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

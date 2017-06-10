@@ -10,6 +10,7 @@
 #define COMMON_H_
 
 #include <avr/io.h>
+#include "bits.h"
 
 #define TRUE	1
 #define FALSE	0
@@ -36,6 +37,10 @@
 #define INC_BTN_PIN		PINC
 #define INC_BTN_PIN_N	PINC2
 
+#define STATUS_MODE_BTN		0
+#define STATUS_INC_BTN		1
+#define BTN_EDIT_HOLD		20
+
 typedef enum
 {
 	TIME_GET_IDLE,
@@ -50,6 +55,15 @@ typedef enum
 	TIME_GET_SECONDS1,
 	TIME_GET_STATE_NUM
 }timeGetState_type;
+
+
+enum 
+{
+	EDIT_IND_VAL = 0xA0,
+	EDIT_IND_HOURS,
+	EDIT_IND_MINS,
+	EDIT_IND_SEC
+};
 
 
 #endif /* COMMON_H_ */
